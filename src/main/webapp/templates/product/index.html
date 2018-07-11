@@ -47,6 +47,10 @@
                 <option th:each="cat,iterStat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
             </select>
             <br><br>
+            <select name="supplier">
+                <option th:each="supp,iterStat : ${suppliers}" th:value="${supp.id}" th:text="${supp.name}"></option>
+            </select>
+            <br><br>
             <input type="submit">
         </form>
 
