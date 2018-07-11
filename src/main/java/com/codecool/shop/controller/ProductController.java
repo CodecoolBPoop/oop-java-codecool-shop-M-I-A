@@ -25,6 +25,8 @@ public class ProductController extends HttpServlet {
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
 
+        String selectedCategory = req.getParameter("category");
+
 //        Map params = new HashMap<>();
 //        params.put("category", productCategoryDataStore.find(1));
 //        params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
@@ -34,7 +36,7 @@ public class ProductController extends HttpServlet {
 //        context.setVariables(params);
         context.setVariable("recipient", "World");
         context.setVariable("category", productCategoryDataStore.find(1));
-        context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(1)));
+        context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(Integer.parseInt(selectedCategory == null ? "1" : selectedCategory))));
         context.setVariable("categories", productCategoryDataStore.getAll());
         engine.process("product/index.html", context, resp.getWriter());
     }
