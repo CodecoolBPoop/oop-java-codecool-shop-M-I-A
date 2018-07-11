@@ -6,6 +6,8 @@ import com.codecool.shop.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ShoppingCartDaoMem implements ShoppingCartDao {
 
@@ -57,6 +59,21 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
 
     public List<CartItem> getAll(){
         return shoppingCartItems;
+    }
+
+    public int getCountByUser(String user){
+        int counter = 0;
+
+//        Stream counterStream = shoppingCartItems.stream()
+//                .filter(cartItem -> "sanya".equals(cartItem.getUser()));
+
+        for (CartItem ct : shoppingCartItems){
+            if (ct.getUser().equals("sanya")){
+                counter += ct.getCount();
+            }
+        }
+
+        return counter;
     }
 
 
