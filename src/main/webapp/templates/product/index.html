@@ -42,14 +42,23 @@
 <div class="container">
     <div class="well well-sm">
         <strong th:text="${category.name}">Category Title</strong>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-            </button>
-            <div class="dropdown-menu" th:each="cat,iterStat : ${categories}" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" th:attr="href='/?category' + ${cat.id}" th:text="${cat.name}">Category</a>
-            </div>
-        </div>
+        <form action="/" method="GET">
+            <select name="category">
+                <option th:each="cat,iterStat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+            </select>
+            <br><br>
+            <input type="submit">
+        </form>
+
+        <!---->
+        <!--<div class="dropdown">-->
+            <!--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                <!--Dropdown button-->
+            <!--</button>-->
+            <!--<div class="dropdown-menu" th:each="cat,iterStat : ${categories}" aria-labelledby="dropdownMenuButton">-->
+                <!--<a class="dropdown-item" th:attr="href='/?category' + ${cat.id}" th:text="${cat.name}">Category</a>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 
     <div id="products" class="row list-group">
