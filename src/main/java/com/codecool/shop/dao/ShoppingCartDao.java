@@ -9,6 +9,7 @@ public interface ShoppingCartDao {
 
     void add(int id, String user, Product product, int count);
     void remove(int id);
+    void listToTerminal();
 
     List<CartItem> getByUser(String user);
 }

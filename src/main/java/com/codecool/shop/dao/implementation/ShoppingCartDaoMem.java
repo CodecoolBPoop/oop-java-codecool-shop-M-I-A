@@ -19,6 +19,8 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
         return instance;
     }
 
+    //TODO Handle if adding the same product that is already in the cart
+
     @Override
     public void add(int id, String user, Product product, int count){
         CartItem ct = new CartItem();
@@ -55,5 +57,14 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
 
     public List<CartItem> getAll(){
         return shoppingCartItems;
+    }
+
+
+    public void listToTerminal(){
+
+        int counter = 0;
+        for (CartItem ct : getAll()){
+            System.out.println(counter + " Product: " + ct.getProduct() + " User: " + ct.getUser());
+        }
     }
 }
