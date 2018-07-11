@@ -47,7 +47,7 @@
                 Dropdown button
             </button>
             <div class="dropdown-menu" th:each="cat,iterStat : ${categories}" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#" th:text="${cat.name}">Category</a>
+                <a class="dropdown-item" th:attr="href='/?category' + ${cat.id}" th:text="${cat.name}">Category</a>
             </div>
         </div>
     </div>
