@@ -82,4 +82,10 @@ public class ProductDaoDB implements ProductDao {
         String query = "SELECT * FROM product WHERE category = " + productCategory.getId();
         return parseMapListOfProducts(ConnectToDB.executeQuery(query));
     }
+
+    @Override
+    public List<Product> getBy(ProductCategory productCategory, Supplier supplier) {
+        String query = "SELECT * FROM product WHERE category = " + productCategory.getId() + " AND supplier = " + supplier.getId();
+        return parseMapListOfProducts(ConnectToDB.executeQuery(query));
+    }
 }
