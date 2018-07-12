@@ -17,6 +17,8 @@ public class Product extends BaseModel {
         this.setProductCategory(productCategory);
     }
 
+
+
     public float getDefaultPrice() {
         return defaultPrice;
     }
