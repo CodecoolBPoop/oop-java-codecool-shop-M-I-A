@@ -43,7 +43,14 @@ public class ProductDaoDB implements ProductDao {
 
     @Override
     public void add(Product product) {
-        //TODO
+        String query = "INSERT INTO product VALUES (" +
+                product.getName() + ", " +
+                product.getPrice() + ", " +
+                product.getDefaultCurrency() + ", " +
+                product.getProductCategory().getId() + " ," +
+                product.getSupplier().getId() + ", " +
+                product.getDescription() + ")";
+        ConnectToDB.executeQuery(query);
     }
 
     @Override
