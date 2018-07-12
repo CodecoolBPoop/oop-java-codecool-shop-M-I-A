@@ -63,7 +63,7 @@ public class ProductController extends HttpServlet {
         context.setVariable("suppliers", supplierDataStore.getAll());
         context.setVariable("recipient", "World");
         context.setVariable("cartItems", itemsInShoppingCart);
-        engine.process("product/index.html", context, resp.getWriter());
+        engine.process("product/indexv2.html", context, resp.getWriter());
     }
 
     @Override
