@@ -44,6 +44,8 @@ public class ShoppingCartPage extends HttpServlet {
         int totalCost = 0;
 
         for (CartItem item : cartItemsByUser){
+            System.out.println("item " + item);
+            System.out.println("item.getProduct() " + item.getProduct());
             totalCost += (item.getProduct().getDefaultPrice() * item.getCount());
         }
 

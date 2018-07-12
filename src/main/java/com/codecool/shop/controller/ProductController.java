@@ -5,13 +5,10 @@ import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.ShoppingCartDao;
 import com.codecool.shop.dao.SupplierDao;
-import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
-import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.dao.implementation.*;
 import com.codecool.shop.config.TemplateEngineUtil;
-import com.codecool.shop.dao.implementation.SupplierDaoMem;
 import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
-import com.codecool.shop.dao.implementation.ShoppingCartDaoMem;
 import com.codecool.shop.db.ConnectToDB;
 import com.codecool.shop.model.Product;
 import org.thymeleaf.TemplateEngine;
@@ -32,10 +29,10 @@ public class ProductController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
+        ProductDao productDataStore = ProductDaoDB.getInstance();
+        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoDB.getInstance();
         ShoppingCartDao shoppingCartDataStore = ShoppingCartDaoMem.getInstance();
-        SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
+        SupplierDao supplierDataStore = SupplierDaoDB.getInstance();
 
         String selectedCategory = req.getParameter("category");
         String selectedSupplier = req.getParameter("supplier");
@@ -45,9 +42,8 @@ public class ProductController extends HttpServlet {
 //        params.put("category", productCategoryDataStore.find(1));
 //        params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
 
-        System.out.println("itemsInShoppingCart ASD");
+
         int itemsInShoppingCart = ((ShoppingCartDaoMem) shoppingCartDataStore).getCountByUser("sanya");
-        System.out.println("itemsInShoppingCart " + itemsInShoppingCart);
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
@@ -58,7 +54,14 @@ public class ProductController extends HttpServlet {
         ProductCategory productCat = productCategoryDataStore.find(Integer.parseInt(selectedCategory == null ? "1" : selectedCategory));
         Supplier chosenSupp = supplierDataStore.find(Integer.parseInt(selectedSupplier == null ? "1" : selectedSupplier));
 
-        context.setVariable("products", productDataStore.getBy(productCat, chosenSupp));
+        if(selectedCategory == null && selectedSupplier == null){
+            context.setVariable("products", productDataStore.getAll());
+            System.out.println("SELECTIONS NULL");
+        } else {
+            context.setVariable("products", productDataStore.getBy(productCat, chosenSupp));
+            System.out.println("SELECTIONS NOT NULL");
+        }
+
         context.setVariable("categories", productCategoryDataStore.getAll());
         context.setVariable("suppliers", supplierDataStore.getAll());
         context.setVariable("recipient", "World");
@@ -68,7 +71,7 @@ public class ProductController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProductDao productDataStore = ProductDaoMem.getInstance();
+        ProductDao productDataStore = ProductDaoDB.getInstance();
         ShoppingCartDao shoppingCartDataStore = ShoppingCartDaoMem.getInstance();
 
         Integer productToCartId = Integer.valueOf(req.getParameter("addToCart"));
