@@ -41,7 +41,7 @@
 
 <div class="container">
     <div class="well well-sm">
-        <strong th:text="${category.name}">Category Title</strong>
+        <strong>Category Title</strong>
         <form action="/" method="GET">
             <select name="category">
                 <option th:each="cat,iterStat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
