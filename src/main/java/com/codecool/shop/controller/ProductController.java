@@ -53,9 +53,15 @@ public class ProductController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 //        context.setVariables(params);
 //        ResultSet rs = ConnectToDB.executeQuery("Select * from product");
+
+
+        ProductCategory productCat = productCategoryDataStore.find(Integer.parseInt(selectedCategory == null ? "1" : selectedCategory));
+        Supplier chosenSupp = supplierDataStore.find(Integer.parseInt(selectedSupplier == null ? "1" : selectedSupplier));
+
+        context.setVariable("products", productDataStore.getBy(productCat, chosenSupp));
+        context.setVariable("categories", productCategoryDataStore.getAll());
+        context.setVariable("suppliers", supplierDataStore.getAll());
         context.setVariable("recipient", "World");
-        context.setVariable("category", productCategoryDataStore.find(1));
-        context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         context.setVariable("cartItems", itemsInShoppingCart);
         engine.process("product/index.html", context, resp.getWriter());
     }
@@ -83,12 +89,6 @@ public class ProductController extends HttpServlet {
         context.setVariable("recipient", "World");
         context.setVariable("cartItems", ((ShoppingCartDaoMem) shoppingCartDataStore).getCountByUser("sanya"));
 
-        ProductCategory productCat = productCategoryDataStore.find(Integer.parseInt(selectedCategory == null ? "1" : selectedCategory));
-        Supplier chosenSupp = supplierDataStore.find(Integer.parseInt(selectedSupplier));
-
-        context.setVariable("products", productDataStore.getBy(productCat, chosenSupp));
-        context.setVariable("categories", productCategoryDataStore.getAll());
-        context.setVariable("suppliers", supplierDataStore.getAll());
         engine.process("product/index.html", context, resp.getWriter());
     }
 }
