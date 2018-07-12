@@ -34,7 +34,7 @@
     -->
         <div class="logo">
             <a href="http://www.creative-tim.com/" class="simple-text logo-normal">
-                Inventory Manager
+                Code Shop
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -109,12 +109,12 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <div class="col-lg-6 col-md-12">
+                    <div class="col-lg-10 col-md-10">
                         <div class="card">
                             <div class="card-header card-header-tabs card-header-primary">
                                 <div class="nav-tabs-navigation">
                                     <div class="nav-tabs-wrapper">
-                                        <span class="nav-tabs-title">Items in cart:</span>
+                                        <span class="nav-tabs-title">Your cart:</span>
                                         <ul class="nav nav-tabs" data-tabs="tabs">
                                             <li class="nav-item">
                                                 <a class="nav-link active" href="#profile" data-toggle="tab">
@@ -123,8 +123,10 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#messages" data-toggle="tab">
-                                                    <i class="material-icons">attach_money</i> Total cost:
+                                                <a class="nav-link" href="#profile" data-toggle="tab">
+                                                    <i th:text="${totalCostMsg}"></i>
+                                                    <i class="material-icons" >attach_money</i>
+
                                                     <div class="ripple-container"></div>
                                                 </a>
                                             </li>
@@ -150,17 +152,18 @@
                                                 <td><h4 th:text="${item.product.defaultPrice}"></h4></td>
                                                 <td><h4 th:text="${item.product.defaultCurrency}"></h4></td>
                                                 <td class="td-actions text-right">
-                                                    <form action="submit" method="post">
-                                                        <button type="button" rel="tooltip" title=""
+                                                    <form method="post">
+                                                        <button type="submit" href="/cart" rel="tooltip" title=""
                                                                 class="btn btn-primary btn-link"
                                                                 data-original-title="Edit Task">
                                                             <i class="material-icons">save</i>
 
                                                         </button>
                                                     </form>
-                                                    <form action="submit" method="post">
-                                                        <input type="hidden" th:value="${item.id}">
-                                                        <button type="button" rel="tooltip" title=""
+                                                    <form method="post">
+                                                        <input type="hidden" name="delete" th:value="${item.id}">
+                                                        <input type="hidden" name="user" value="sanya">
+                                                        <button type="submit" href="/cart" rel="tooltip" title=""
                                                                 class="btn btn-danger btn-link"
                                                                 data-original-title="Remove">
                                                             <i class="material-icons">close</i>
