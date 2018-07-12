@@ -1,21 +1,15 @@
 package com.codecool.shop.model;
 
 public class CartItem {
-
-    private int id;
+    private static int nextID = 0;
+    private int id = 0;
     private String user;
     private Product product;
     private int count;
 
-
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
 
     public int getCount() {
         return count;
@@ -42,6 +36,5 @@ public class CartItem {
     public void setProduct(Product product) {
         this.product = product;
     }
-
 
 }
