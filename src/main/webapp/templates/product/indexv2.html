@@ -24,7 +24,7 @@
 </head>
 
 <body class="">
-<div class="wrapper">
+
 
     <div class="sidebar" data-color="azure" data-background-color="black" data-image="/static/img/sidebar-1.jpg">
         <!--
@@ -47,14 +47,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/">
+                    <a class="nav-link active" href="/">
                         <i class="material-icons">dashboard</i>
                         <p>Shop</p>
                     </a>
                 </li>
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="http://polly.agency:8000/table">
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart">
                         <i class="material-icons">content_paste</i>
                         <p>Cart</p>
                     </a>
@@ -62,105 +62,105 @@
             </ul>
         </div>
     </div>
-    <!--<div class="sidebar-background" style="background-image: url(/static/img/sidebar-1.jpg) "></div></div>-->
-    <div class="main-panel">
-        <!-- Navbar -->
+    <div class="sidebar-background" style="background-image: url(/static/img/sidebar-1.jpg) "></div>
 
-        <nav class="navbar navbar-inverse navbar-expand-lg bg-dark" role="navigation-demo">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-translate">
-                    <a class="navbar-brand" href="http://polly.agency:8000/presentation.html">Your Shopping Cart</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <h4 th:text="'Items in cart: ' + ${cartItems}">Items in cart:</h4>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#pablo" class="nav-link">
-                                Discover
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#pablo" class="nav-link">
-                                Wishlist
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round"
-                               data-toggle="dropdown">
-                                <i class="material-icons">email</i>
-                            </a>
-                        </li>
+<div class="main-panel">
+    <!-- Navbar -->
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-
-                                <div class="d-md-block"><i class="material-icons">person</i>
-                                    sanya
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+    <nav class="navbar navbar-inverse navbar-expand-lg bg-dark" role="navigation-demo">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="http://polly.agency:8000/presentation.html">Your Shopping Cart</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <!-- /.container-->
-        </nav>
-        <div class="content">
-            <div class="container-fluid">
-                <div class="well well-sm">
-                    <strong>FILTER PRODUCTS</strong>
-                    <div class="row">
-                        <form action="/" method="GET" class="form-horizontal">
-                            <div class="col-md-4">
-                                <h4>CATEGORIES</h4>
-                                <select name="category" class="form-control">
-                                    <option th:each="cat,iterStat : ${categories}" th:value="${cat.id}"
-                                            th:text="${cat.name}"></option>
-                                </select>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <h4 th:text="'Items in cart: ' + ${cartItems}">Items in cart:</h4>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Discover
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Wishlist
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round"
+                           data-toggle="dropdown">
+                            <i class="material-icons">email</i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pablo">
+
+                            <div class="d-md-block"><i class="material-icons">person</i>
+                                sanya
                             </div>
-                            <div class="col-md-4">
-                                <h4>SUPPLIERS</h4>
-                                <select name="supplier" class="form-control">
-                                    <option th:each="supp,iterStat : ${suppliers}" th:value="${supp.id}"
-                                            th:text="${supp.name}"></option>
-                                </select>
-                            </div>
-                            <br><br>
-                            <input type="submit" class="d-inline">
-                        </form>
-                    </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-->
+    </nav>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="well well-sm">
+                <strong>FILTER PRODUCTS</strong>
+                <div class="row">
+                    <form action="/" method="GET" class="form-horizontal">
+                        <div class="col-md-4">
+                            <h4>CATEGORIES</h4>
+                            <select name="category" class="form-control">
+                                <option th:each="cat,iterStat : ${categories}" th:value="${cat.id}"
+                                        th:text="${cat.name}"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>SUPPLIERS</h4>
+                            <select name="supplier" class="form-control">
+                                <option th:each="supp,iterStat : ${suppliers}" th:value="${supp.id}"
+                                        th:text="${supp.name}"></option>
+                            </select>
+                        </div>
+                        <br><br>
+                        <input type="submit" class="d-inline">
+                    </form>
                 </div>
+            </div>
 
-                <div id="products" class="row list-group">
+            <div id="products" class="row list-group">
 
-                    <div class="item col-xs-4 col-lg-4" th:each="prod,iterStat : ${products}">
-                        <div class="thumbnail">
-                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff"
-                                 th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt=""/>
-                            <div class="caption">
-                                <h4 class="group inner list-group-item-heading" th:text="${prod.name}">Product name</h4>
-                                <p class="group inner list-group-item-text" th:text="${prod.description}">Product
-                                    description... </p>
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-6">
-                                        <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
-                                    </div>
-                                    <div class="col-xs-12 col-md-6">
-                                        <form method="post">
-                                            <input type="hidden" name="addToCart" th:value="${prod.id}">
-                                            <button type="submit" class="btn btn-success" href="/">Add to cart</button>
-                                        </form>
-                                    </div>
+                <div class="item col-xs-4 col-lg-4" th:each="prod,iterStat : ${products}">
+                    <div class="thumbnail">
+                        <img class="group list-group-image" src="http://placehold.it/400x250/000/fff"
+                             th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt=""/>
+                        <div class="caption">
+                            <h4 class="group inner list-group-item-heading" th:text="${prod.name}">Product name</h4>
+                            <p class="group inner list-group-item-text" th:text="${prod.description}">Product
+                                description... </p>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <form method="post">
+                                        <input type="hidden" name="addToCart" th:value="${prod.id}">
+                                        <button type="submit" class="btn btn-success" href="/">Add to cart</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -168,14 +168,15 @@
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container">
-                <div class="copyright float-right">
-                    @ 2018, Python lives matter!
-                </div>
-            </div>
-        </footer>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright float-right">
+                @ 2018, Python lives matter!
+            </div>
+        </div>
+    </footer>
+</div>
 </div>
 
 </body>

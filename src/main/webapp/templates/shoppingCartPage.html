@@ -24,180 +24,178 @@
 </head>
 
 <body class="">
-<div class="wrapper">
 
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="/static/img/sidebar-1.jpg">
-        <!--
-    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+<div class="sidebar" data-color="azure" data-background-color="black" data-image="/static/img/sidebar-1.jpg">
+    <!--
+Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
-    Tip 2: you can also add an image using data-image tag
-    -->
-        <div class="logo">
-            <a href="http://www.creative-tim.com/" class="simple-text logo-normal">
-                Code Shop
-            </a>
-        </div>
-        <div class="sidebar-wrapper">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="http://polly.agency:8000/">
-                        <i class="material-icons">web</i>
-                        <p>Polly</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/">
-                        <i class="material-icons">dashboard</i>
-                        <p>Shop</p>
-                    </a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="http://polly.agency:8000/table">
-                        <i class="material-icons">content_paste</i>
-                        <p>Cart</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
+Tip 2: you can also add an image using data-image tag
+-->
+    <div class="logo">
+        <a href="http://www.creative-tim.com/" class="simple-text logo-normal">
+            Code Shop
+        </a>
     </div>
-    <!--<div class="sidebar-background" style="background-image: url(/static/img/sidebar-1.jpg) "></div></div>-->
-    <div class="main-panel">
-        <!-- Navbar -->
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="http://polly.agency:8000/">
+                    <i class="material-icons">web</i>
+                    <p>Polly</p>
+                </a>
+            </li>
 
-        <nav class="navbar navbar-inverse navbar-expand-lg bg-dark" role="navigation-demo">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-translate">
-                    <a class="navbar-brand" href="http://polly.agency:8000/presentation.html">Your Shopping Cart</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#pablo" class="nav-link">
-                                Discover
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#pablo" class="nav-link">
-                                Wishlist
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round"
-                               data-toggle="dropdown">
-                                <i class="material-icons">email</i>
-                            </a>
-                        </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <i class="material-icons">dashboard</i>
+                    <p>Shop</p>
+                </a>
+            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
+            <li class="nav-item active">
+                <a class="nav-link" href="/cart">
+                    <i class="material-icons">content_paste</i>
+                    <p>Cart</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="sidebar-background" style="background-image: url(/static/img/sidebar-1.jpg) "></div>
 
-                                <div class="d-md-block"><i class="material-icons">person</i>
-                                    sanya
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+<div class="main-panel">
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-inverse navbar-expand-lg bg-dark" role="navigation-demo">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="http://polly.agency:8000/presentation.html">Your Shopping Cart</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <!-- /.container-->
-        </nav>
-        <div class="content">
-            <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Discover
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Wishlist
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round"
+                           data-toggle="dropdown">
+                            <i class="material-icons">email</i>
+                        </a>
+                    </li>
 
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="card">
-                            <div class="card-header card-header-tabs card-header-primary">
-                                <div class="nav-tabs-navigation">
-                                    <div class="nav-tabs-wrapper">
-                                        <span class="nav-tabs-title">Your cart:</span>
-                                        <ul class="nav nav-tabs" data-tabs="tabs">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#profile" data-toggle="tab">
-                                                    <i class="material-icons">delete_forever</i> Delete all
-                                                    <div class="ripple-container"></div>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#profile" data-toggle="tab">
-                                                    <i th:text="${totalCostMsg}"></i>
-                                                    <i class="material-icons" >attach_money</i>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pablo">
 
-                                                    <div class="ripple-container"></div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            <div class="d-md-block"><i class="material-icons">person</i>
+                                sanya
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-->
+    </nav>
+    <div class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-tabs card-header-primary">
+                            <div class="nav-tabs-navigation">
+                                <div class="nav-tabs-wrapper">
+                                    <span class="nav-tabs-title">Your cart:</span>
+                                    <ul class="nav nav-tabs" data-tabs="tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#profile" data-toggle="tab">
+                                                <i class="material-icons">delete_forever</i> Delete all
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#profile" data-toggle="tab">
+                                                <i th:text="${totalCostMsg}"></i>
+                                                <i class="material-icons">attach_money</i>
+
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="profile">
-                                        <table class="table">
-                                            <tbody>
-                                            <tr th:each="item : ${cartItems}">
-                                                <td>
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <h3 th:text="${item.count}"></h3>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td th:text="${item.product.name}">
-                                                </td>
-                                                <td><h4 th:text="${item.product.defaultPrice}"></h4></td>
-                                                <td><h4 th:text="${item.product.defaultCurrency}"></h4></td>
-                                                <td class="td-actions text-right">
-                                                    <form method="post">
-                                                        <button type="submit" href="/cart" rel="tooltip" title=""
-                                                                class="btn btn-primary btn-link"
-                                                                data-original-title="Edit Task">
-                                                            <i class="material-icons">save</i>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="profile">
+                                    <table class="table">
+                                        <tbody>
+                                        <tr th:each="item : ${cartItems}">
+                                            <td>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <h3 th:text="${item.count}"></h3>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td th:text="${item.product.name}">
+                                            </td>
+                                            <td><h4 th:text="${item.product.defaultPrice}"></h4></td>
+                                            <td><h4 th:text="${item.product.defaultCurrency}"></h4></td>
+                                            <td class="td-actions text-right">
+                                                <form method="post">
+                                                    <button type="submit" href="/cart" rel="tooltip" title=""
+                                                            class="btn btn-primary btn-link"
+                                                            data-original-title="Edit Task">
+                                                        <i class="material-icons">save</i>
 
-                                                        </button>
-                                                    </form>
-                                                    <form method="post">
-                                                        <input type="hidden" name="delete" th:value="${item.id}">
-                                                        <input type="hidden" name="user" value="sanya">
-                                                        <button type="submit" href="/cart" rel="tooltip" title=""
-                                                                class="btn btn-danger btn-link"
-                                                                data-original-title="Remove">
-                                                            <i class="material-icons">close</i>
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
+                                                    </button>
+                                                </form>
+                                                <form method="post">
+                                                    <input type="hidden" name="delete" th:value="${item.id}">
+                                                    <input type="hidden" name="user" value="sanya">
+                                                    <button type="submit" href="/cart" rel="tooltip" title=""
+                                                            class="btn btn-danger btn-link"
+                                                            data-original-title="Remove">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container">
-                <div class="copyright float-right">
-                    @ 2018, Python lives matter!
-                </div>
-            </div>
-        </footer>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright float-right">
+                @ 2018, Python lives matter!
+            </div>
+        </div>
+    </footer>
 </div>
-
 </body>
 </html>
