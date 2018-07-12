@@ -7,6 +7,8 @@ import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.config.TemplateEngineUtil;
 import com.codecool.shop.dao.implementation.SupplierDaoMem;
+import com.codecool.shop.model.ProductCategory;
+import com.codecool.shop.model.Supplier;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -41,9 +43,13 @@ public class ProductController extends HttpServlet {
 //        context.setVariables(params);
         context.setVariable("recipient", "World");
         context.setVariable("category", productCategoryDataStore.find(1));
-        context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(Integer.parseInt(selectedCategory == null ? "1" : selectedCategory))));
+
+        ProductCategory productCat = productCategoryDataStore.find(Integer.parseInt(selectedCategory == null ? "1" : selectedCategory));
+        Supplier chosenSupp = supplierDataStore.find(Integer.parseInt(selectedSupplier));
+
+        context.setVariable("products", productDataStore.getBy(productCat, chosenSupp));
         context.setVariable("categories", productCategoryDataStore.getAll());
-//        context.setVariable("suppliers", productDataStore.getBy(supplierDataStore.find(Integer.parseInt(selectedSupplier == null ? "1" : selectedSupplier))));
+        context.setVariable("suppliers", supplierDataStore.getAll());
         engine.process("product/index.html", context, resp.getWriter());
     }
 }
