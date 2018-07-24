@@ -40,17 +40,38 @@ public class ShoppingCartPage extends HttpServlet {
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
+
+        int totalCost = 0;
+
+        for (CartItem item : cartItemsByUser){
+            System.out.println("item " + item);
+            System.out.println("item.getProduct() " + item.getProduct());
+            totalCost += (item.getProduct().getDefaultPrice() * item.getCount());
+        }
+
+        String totalCostMsg = "Total cost: " + String.valueOf(totalCost) + " ";
+        System.out.println("totalCostMsg:: " + totalCostMsg);
+
 //        ResultSet rs = ConnectToDB.executeQuery("Select * from product");
         context.setVariable("recipient", "World");
         context.setVariable("category", productCategoryDataStore.find(1));
         context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         context.setVariable("cartItemsNum", itemsCountInShoppingCart);
         context.setVariable("cartItems", cartItemsByUser);
+        context.setVariable("totalCostMsg", totalCostMsg);
         engine.process("shoppingCartPage.html", context, resp.getWriter());
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String user = req.getParameter("user");
+        Integer cartItemId = Integer.valueOf(req.getParameter("delete"));
+
+        ShoppingCartDao shoppingCartDataStore = ShoppingCartDaoMem.getInstance();
+
+        shoppingCartDataStore.remove(cartItemId);
+
+        this.doGet(req, resp);
     }
 }

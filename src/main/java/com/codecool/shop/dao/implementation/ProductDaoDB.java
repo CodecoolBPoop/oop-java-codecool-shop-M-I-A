@@ -25,7 +25,7 @@ public class ProductDaoDB implements ProductDao {
     }
 
     private static Product parseProductFromMap(Map<String, Object> product) {
-        return new Product(product.get("name").toString(),
+        return new Product(Integer.parseInt(product.get("id").toString()), product.get("name").toString(),
                 Float.parseFloat(product.get("price").toString()),
                 product.get("currency").toString(),
                 product.get("description").toString(),
